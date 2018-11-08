@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13-vue中的实名插槽</title>
+</head>
+<body>
+    <div id="app">
+        <my-computer>
+            <div slot="cpu">core i7</div>
+            <img slot="yp" src="../../image/3.jpg" alt="" width="100px">
+            <span>不能显示无插槽</span>
+        </my-computer>
+    </div>
+
+    <template id="computer">
+        <div id="main">
+            <slot name="cpu">CUP</slot>
+            <br>
+            <slot name="gpu">GUP</slot>
+            <br>
+            <slot name="yp">硬盘</slot>
+            <br>
+            <slot name="lct">内存条</slot>
+        </div>
+    </template>
+        <script src="../../js/vue.js"></script>
+        <script>
+
+            Vue.component('my-computer',{
+                template: '#computer'
+            });
+            new Vue({
+                el: '#app'
+            })
+        </script>
+</body>
+</html>

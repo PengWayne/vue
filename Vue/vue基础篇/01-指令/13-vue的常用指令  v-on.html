@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+</head>
+<body>
+    <div id="app">
+        <div :style="{color:fontColor}">
+            {{message}}
+            <button v-on:click="change()">点击改变内容</button><!--v-on:click="change()" 也可写作 @click="change()"-->
+        </div>
+    </div>
+        <script src="../../js/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    message: 'hello world!',
+                    fontColor: 'red',
+                },
+                methods: {  //实例的所有函数的实现
+                    change(){
+                        this.message = 'hello vue!';
+                    }
+                }
+</body>
+})
+</script>
+</html>

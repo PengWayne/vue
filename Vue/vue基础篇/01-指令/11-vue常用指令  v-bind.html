@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <style>
+        img{
+            width: 800px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="imgSrc" :alt="bg"><!--<img :src="imgSrc" alt="">  简写-->
+    </div>
+        <script src="../../js/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    imgSrc: '../image/preview.jpg',
+                    bg: '壁纸'
+                }
+            })
+        </script>
+</body>
+</html>

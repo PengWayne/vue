@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12-vue中的匿名插槽 slot</title>
+</head>
+<body>
+    <div id="app">
+        <component-name>
+            <!--component-name标签里的所有内容显示在slot匿名插槽所在的位置-->
+            <img src="../../image/2.jpg" width="300px" alt="">
+            <p>这尼玛太萌了吧</p>
+            <input type="date">
+        </component-name>
+    </div>
+
+    <template id="template-id">
+        <div id="panel">
+            <h2 class="panel-title">插槽的头部</h2>
+            <!--内容部分不确定，预留一个位置  使用 slot 标签-->
+            <slot>插槽可以替换任何标签，不传值则显示此部分文字</slot>
+            <footer>插槽尾部</footer>
+        </div>
+    </template>
+
+        <script src="../../js/vue.js"></script>
+        <script>
+
+            //1.实例化组件
+            Vue.component('component-name',{
+                template: '#template-id',
+            });
+
+            new Vue({
+                el: '#app'
+            })
+        </script>
+</body>
+</html>

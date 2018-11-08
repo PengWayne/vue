@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+</head>
+<body>
+    <div id="app">
+        全局组件
+        <my-date></my-date>
+        局部组件
+        <my-color></my-color>
+    </div>
+        <script src="../../js/vue.js"></script>
+        <script>
+
+            //注册全局组件
+            Vue.component('my-date',{
+                //模板选项
+                template: `
+                    <div>
+                        <input type="date">
+                    </div>
+                `
+            });//组件名称 + 构造器名称
+
+            new Vue({
+                el: '#app',
+                data: {
+                    message: ''
+                },
+                //函数
+                methods: {
+
+                },
+                //计算属性
+                computed: {
+
+                },
+                //局部组件
+                components: {
+                    'my-color': {
+                //模板选项
+                template: `
+                    <div>
+                        <input type="color">
+                    </div>
+                `
+                        }//组件名称 + 构造器名称
+                }
+            })
+        </script>
+</body>
+</html>

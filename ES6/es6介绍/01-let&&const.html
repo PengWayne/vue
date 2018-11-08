@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-let&&const</title>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+<script>
+    //ES6中用 let(声明变量) && const(声明常量) 用来声明变量和常量(局部变量) ES5 var 为全局变量
+
+    //let和const 1.作用域只限于当前代码块 2.指定的作用域不会被提升 3.在相同的作用域下不能声明相同的变量 4.const声明的常量必须赋值
+
+    //1.let作用域只限于当前代码块
+    /*  {
+        var str = '张三';
+        console.log(str);
+        let str1 = '李四';
+        console.log(str1);
+        }
+        console.log('str-' + str);//有输出
+        console.log('str1-' + str1);//超出作用域*/
+
+    //2.let指定的作用域不会被提升
+   /* {
+        console.log('top-' + str);//undefined(var的作用域被提升，放在当前作用域的最前面，定义为var str;但未赋值
+        var str = '张三';//在此处变为 str = '张三';
+        console.log('bottom-' + str);
+    }*/
+   /* {
+        console.log(str);//not defined let作用域不会被提
+        let str = '李四';
+    }*/
+
+   //3.在相同的作用域下不能声明相同的变量
+    /*{
+        var str = '张三';
+        var str = '李四';
+        console.log('str-' + str);//输出李四
+    }*/
+    /*{
+        let str1 = '小明';
+        let str1 = '小华';
+        console.log('str1-' + str1);//解析时直接报错
+    }*/
+
+    //4.for循环体现let的父子作用域
+    /*  var buts = document.querySelectorAll('button')
+        for (i = 0; i < buts.length; i ++){
+            buts[i].onclick = function () {
+                alert('点击了第' + i + '个按钮')//一直为最后一个按钮
+            }
+     }*/
+    /*  var buts = document.querySelectorAll('button')
+        for (i = 0; i < buts.length; i ++) {
+            (function (i) {
+                buts[i].onclick = function () {
+                    alert('点击了第' + i + '个按钮')//ok
+                }
+            })(i);
+        }*/
+    /* let buts = document.querySelectorAll('button')
+        for (let i = 0; i < buts.length; i ++){
+            buts[i].onclick = function () {
+                alert('点击了第' + i + '个按钮')//ok
+            }
+     }*/
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08-验证data选项必须时函数</title>
+</head>
+<body>
+    <div id="app">
+        <component-name></component-name>
+        <component-name></component-name>
+        <component-name></component-name>
+        <component-name></component-name>
+    </div>
+
+    <!--注册一个组件-->
+    <template id="template-id">
+        <button @click="counter += 1">点击次数:{{counter}}</button>
+    </template>
+        <script src="../../js/vue.js"></script>
+        <script>
+             //1.实例化组件
+             Vue.component('component-name',{
+                 template: '#template-id',
+                 data() {
+                     return {
+                         counter: 0
+                     }
+                 }
+             });
+
+            new Vue({
+                el: '#app'
+            })
+        </script>
+</body>
+</html>

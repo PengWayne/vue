@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+</head>
+<body>
+    <div id="app">
+        <p v-for="(score,index) in scores"><!--如果不需要索引可以这样写v-for="score in scores"-->
+            {{index + ':' + score}}
+        </p>
+        <p v-for="(data,index) in dog">
+            {{index+ ':' + data}}
+        </p>
+        <p v-for="str in name">
+            {{str}}
+        </p>
+        <p v-for="str1 in number">
+            {{str1}}
+        </p>
+    </div>
+        <script src="../../js/vue.js"></script>
+        <script>
+            new Vue({
+                el:'#app',
+                data: {
+                    scores: [100,90,80,20,98],
+                    dog: {name : '旺财', age : 3, height : 30},
+                    name: 'WaynePeng',
+                    number: '19980113'
+                }
+            })
+        </script>
+</body>
+</html>

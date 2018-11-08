@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>挂载选项</title>
+</head>
+<body>
+    <div id="app">
+        <component-name></component-name>
+    </div>
+
+    <template id="template-id">
+        <div>
+            <img src="../../image/2.jpg" width="200px">
+            <p>{{message}}</p>
+            <input type="date">
+        </div>
+    </template>
+
+        <script src="../../js/vue.js"></script>
+        <script>
+             //1.实例化组件
+             Vue.component('component-name',{
+                 template: '#template-id',
+                 //想在其它位置使用data挂载必须让date为函数形式
+                 data() {
+                     return {
+                         message: '人家萌不萌!'
+                     }
+                 }
+             });
+
+            new Vue({
+                el: '#app'
+            })
+        </script>
+</body>
+</html>

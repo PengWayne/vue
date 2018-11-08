@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据集合-set</title>
+</head>
+<body>
+    <script>
+        // 集合的key和value一样
+        //1.创建一个集合
+        let test_set = new Set(['张三','李四','张三']);//set会自动去除重复数据
+        //keys && values
+        console.log(test_set.keys());
+        console.log(test_set.values());
+        console.log(test_set);
+        //2.一个属性  长度用size取值
+        console.log('长度' + test_set.size);
+        //3.四个方法
+        //add   添加
+        test_set.add('王五').add('赵六');
+        console.log(test_set);
+        //delete  删除
+        test_set.delete('王五');
+        console.log(test_set);
+        //has  判读是否存在某个元素
+        console.log(test_set.has('张三'));
+        //clear 清除集合全部数据
+        test_set.clear();
+        console.log(test_set);
+    </script>
+</body>
+</html>

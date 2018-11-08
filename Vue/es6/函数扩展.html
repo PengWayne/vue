@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数扩展</title>
+</head>
+<body>
+    <script>
+     /*   //1.形参设置默认值
+
+        //ES5
+        function sum(num1, num2) {
+            //当未传参数时设置默认值
+            num1 = num1 || 10;
+            num2 = num2 || 20;
+            console.log(num1 + num2);
+        }
+
+        //sum(10,30);
+        sum();*/
+
+     /*//ES6
+     function sum(num1 = 10, num2 =20) {//直接在此处设置默认值
+         console.log(num1 + num2);
+     }
+
+     sum(10,30);
+     sum();*/
+
+     //2.参数形式 延展操作符
+
+   /*  //ES5
+     function sum() {
+         let result = 0;
+         for (let value of arguments){
+             result += value;
+         }
+         return result;
+     }*/
+
+    /*//ES6
+     function sum(name,...nums) {
+         let result = 0;
+         console.log(name);
+         for (let value of nums) {
+             result += value;
+         }
+         return result;
+     }
+         console.log(sum('发发',10, 20, 30, 40, 50));*/
+
+    //3.箭头函数    () => {}
+     /*基础语法
+
+     (参数1, 参数2, …, 参数N) => {函数声明}
+     (参数1, 参数2, …, 参数N) => 表达式（单一）
+     //相当于：(参数1, 参数2, …, 参数N) =>{ return表达式}
+
+     // 当只有一个参数时，圆括号是可选的：
+     (单一参数) => {函数声明}
+     单一参数 => {函数声明}
+
+     // 没有参数的函数应该写成一对圆括号。
+     () => {函数声明}*/
+      let num = (num1,num2) => { return num1 + num2; }
+      console.log(num(100, 200));
+      /************************/
+      let nameArr = ['张三','李四','王五'];
+      nameArr.forEach((value, index) =>{
+          console.log(index + ':' + value);
+      })
+        
+     //demo
+        function demo() {
+            setTimeout(function () {
+                console.log(this);
+            },1000)
+
+            setTimeout(() =>  {
+                console.log(this);
+            },1000)
+        }
+        let obj = {};
+        demo.call(obj);
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <parent></parent>
+</div>
+<template id="parent">
+    <div>
+        <input type="text" v-model="message1"/>
+        <input type="text" v-model="message2"/>
+        <child :mes="message"></child>
+    </div>
+</template>
+<template id="child">
+    <div>
+        <br>
+        <button @click="console">按钮</button>
+    </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    let child = Vue.extend({
+        template: '#child',
+        props: {
+            mes: {
+                type: Object
+            }
+        },
+        methods: {
+            console() {
+                console.log(this.mes)
+            }
+        }
+    })
+    Vue.component('parent',{
+        template: '#parent',
+        props: {
+
+        },
+        components: {
+             child
+        },
+        data() {
+            return {
+                message: {
+                    mes1: this.message1,
+                    mes2: this.message2
+                },
+                message1: '',
+                message2: ''
+            }
+        }
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>局部组件</title>
+</head>
+<body>
+    <div id="app">
+        <my-color></my-color>
+    </div>
+        <script src="../../js/vue.js"></script>
+        <script>
+            //1.创建模板构造器
+            let Profile = Vue.extend({
+                //1.1模板选项
+                template: `
+                    <div>
+                        选取颜色:
+                        <input type="color">
+                    </div>
+                `
+            });
+
+            new Vue({
+                el: '#app',
+                data: {
+                    message: ''
+                },
+                methods: {
+
+                },
+                computed: {
+
+                },
+                //注册局部组件
+                components: {
+                    'my-color': Profile
+                }
+            })
+        </script>
+</body>
+</html>

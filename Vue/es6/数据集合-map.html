@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据集合-map</title>
+</head>
+<body>
+    <script>
+        let obj = {name : '王五'}, obj1 = {name : '赵六'};//对象
+        //创建一个Map集合(可存放数组和对象) Map 也能去重
+        const test_map = new Map([
+            ['name','张三'],
+            ['sex',18],
+            ['age','男'],
+            [obj,'好了'],
+            [obj1,'完美']
+        ]);
+        console.log(test_map);
+        //1.set && get
+        test_map.set('name1','李')
+        test_map.set('friends',['aaa','bbb','ccc'])
+        console.log(test_map);
+        console.log(test_map.get('friends'));
+        //2.delete
+        test_map.delete('name1')
+        console.log(test_map);
+        //3.has 验证某个元素是否存在  clear 清除集合全部元素
+        //4.keys() values() entries()
+        console.log(test_map.keys());
+        console.log(test_map.values());
+        console.log(test_map.entries());
+        //遍历
+        test_map.forEach(function (value,index) {
+            console.log(index + ':' + value);
+        })
+    </script>
+</body>
+</html>

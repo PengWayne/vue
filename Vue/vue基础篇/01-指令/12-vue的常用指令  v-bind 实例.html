@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <style>
+        .active{
+            background-color: orange;
+            font-size: 20px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p v-for="(college,index) in colleges" :class="index === activeindex ? 'active' : ''">
+            {{college}}
+        </p>
+        <p :style="{color:fontcolor}"><!--使用v-bind绑定style时需 :style{设置什么的样式:绑定的数据} 因为style为键值对-->
+            hello world!
+        </p>
+    </div>
+        <script src="../../js/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    colleges:[
+                        'IOS学院',
+                        'Android学院',
+                        'C++学院',
+                        'JAVA学院',
+                        'Python学院'
+                    ],
+                    activeindex: 2,
+                    fontcolor: 'green'
+                }
+            })
+        </script>
+</body>
+</html>

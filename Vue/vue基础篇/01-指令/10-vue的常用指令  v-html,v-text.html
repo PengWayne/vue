@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html,v-text</title>
+</head>
+<body>
+    <!--v-text 和 v-html 动态注入-->
+    <div id="app">
+        <p>{{message}}hello world!</p><!--可以随意添加数据-->
+        <p v-text="message">hello world!</p><!--不能再p标签中添加数据，p中的数据会被覆盖-->
+        <div v-html="html"></div>
+    </div>
+        <script src="../../js/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    message: 'hello vue!',
+                    html: '<input type="date"><br/><input type="color">'
+                }
+            })
+        </script>
+</body>
+</html>

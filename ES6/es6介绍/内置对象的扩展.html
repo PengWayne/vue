@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面型对象的扩展</title>
+    <style>
+        .test{
+            color: aqua;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>111</li>
+    <li>111</li>
+    <li>111</li>
+    <li>111</li>
+    <li>111</li>
+    <li>111</li>
+</ul>
+    <script>
+        //1.模板字符串
+        let class_name = 'test';
+         let str = '适合敲代码！';
+         let html = `<html>
+                        <head></head>
+                            <body>
+                                <p>今天天气不错！</p>
+                                <div class="${class_name}">${str}</div>
+                            </body>
+                        </html>`;//  ``
+        console.log(html);
+
+        //2.数组的扩展
+        //Array.from  把伪数组转化为数组
+        let allli = document.querySelectorAll('li');//选择所有的li标签
+        console.log(allli);
+        console.log(Array.isArray(allli));// Array.isArray()用于确定传递的值是否是一个 Array。
+        console.log(Array.from(allli));
+        //Array.of  把零散的数据转化为数组
+        console.log(Array.of(1, 2, 3, 4, 5));
+        console.log(Array.of('ti', 'sdf', 'ff'));
+
+        //3.对象的扩展
+        //常规对象写法
+        let name = '张三';
+        let age = 18;
+        let obj = {
+            'name' : name,
+            'age' : age
+        };
+        console.log(obj);
+        //ES6中，如果key和valve相同就只用写一个就ok了
+        let obj1 = {
+            name,
+            age
+        }
+        console.log(obj1);
+
+        //Object.assign() 将几个对象合成一个对象
+        let objall = {};
+        let obj2 = {'sex' : '男'};
+        Object.assign(objall, obj1, obj2);//将obj1，obj2的数据合入objall
+        console.log(objall);
+
+        //延展操做符 ... 用于组件与组件之间的数据传递
+        let today = '今天天气很好';
+        let todayArr = [...today];//将today拆分放入todayArr数组里面
+        console.log(todayArr);
+        let test = {...objall};
+        console.log(test);
+
+        //去重
+        let myArr = [1,2,3,'李华',3,2,1]
+        //console.log(new Set(myArr));
+        let myArray = [...new Set(myArr)];
+        console.log(myArray);
+    </script>
+</body>
+</html>

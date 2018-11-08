@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setter</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{fullName}}</p>
+        <button @click="deal()">调用计算属性的setter方法</button>
+    </div>
+        <script src="../../js/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    firstName: '张',
+                    lastName: '三丰'
+                },
+                methods: {
+                    deal(){
+                        this.fullName = '霍元甲';//调用fullName的setter方法
+                    }
+                },
+                computed: {
+                   /* //get
+                    fullName(){
+                        return this.firstName + '' + this.lastName;
+                    }*/
+                   fullName: {
+                       //get
+                       get() {
+                           return this.firstName + '' + this.lastName;
+                       },
+                       //set
+                       set(str){
+                            let nameArr = str.split('');
+                            this.firstName = nameArr[0];
+                            this.lastName = nameArr[1] + '' + nameArr[2];
+                       }
+                   }
+                }
+            })
+        </script>
+</body>
+</html>

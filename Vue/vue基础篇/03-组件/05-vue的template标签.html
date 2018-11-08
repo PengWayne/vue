@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-vue的template标签</title>
+</head>
+<body>
+    <div id="app">
+        <my-div></my-div>
+    </div>
+
+    <template id="my_div">
+        <!--如果template里面要放多个标签必须使全部标签放在一个大的标签容器里，不然无法显示除第一个以外的其它标签-->
+        <div>
+            <div>我是MT!</div>
+            <input type="date">
+        </div>
+    </template>
+
+        <script src="../../js/vue.js"></script>
+        <script>
+            //1.实例化组件
+            Vue.component('my-div',{
+                template: '#my_div'
+            });
+            new Vue({
+                el: '#app',
+            })
+        </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue多层组件的通讯</title>
+</head>
+<body>
+    <div id="app">
+        <parentdiv :imgsrc="img" :imgtitle="title"></parentdiv>
+    </div>
+
+    <template id="my-img">
+        <img :src="src_" width="200px">
+    </template>
+
+    <template id="my-title">
+        <h2>{{title_}}</h2>
+    </template>
+
+    <template id="parent-div">
+        <div>
+            <my-child1 :src_="imgsrc"></my-child1>
+            <my-child2 :title_="imgtitle"></my-child2>
+        </div>
+    </template>
+
+        <script src="../../js/vue.js"></script>
+        <script>
+            
+            //1.子组件构造器
+            let Child1 = Vue.extend({
+                template: '#my-img',
+                props: ['src_']
+            });
+            let Child2 = Vue.extend({
+                template: '#my-title',
+                props: ['title_']
+            });
+            //2.父组件构造器 注册并创建父组件
+            Vue.component('parentdiv', {
+                props: ['imgsrc', 'imgtitle'],
+                //在父组件中注册子组件
+                components: {
+                    'my-child1': Child1,
+                    'my-child2': Child2
+                },
+                //创建/绑定父组件
+                template: '#parent-div'
+            });
+
+            new Vue({
+                el: '#app',
+                data: {
+                    title: '人家这么可爱当然是男孩子啦',
+                    img: '../../image/2.jpg'
+                }
+            })
+        </script>
+</body>
+</html>

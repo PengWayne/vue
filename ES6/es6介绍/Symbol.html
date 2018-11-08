@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symbol</title>
+</head>
+<body>
+    <script>
+               /* ==   用于比较   判断 两者相等      ==在比较的时候可以转自动换数据类型
+
+
+
+                ===用于严格比较   判断两者严格相等     ===严格比较，不会进行自动转换，要求进行比较的操作数必须类型一致，不一致时返回flase。
+
+        举例说明：
+
+        "1"  ==  true
+
+                类型不同，"=="将先做类型转换，把true转换为1，即为 "1"  ==  1；
+
+        此时，类型仍不同，继续进行类型转换，把"1"转换为1，即为 1 == 1；
+
+        此时，"==" 左右两边的类型都为数值型，比较成功！返回true
+
+
+
+                如果比较："1"  ===  true 左侧为字符型，右侧为bool布尔型，左右两侧类型不同，结果为false；
+
+        如果比较："1" === 1 左侧为字符型，右侧为int数值型，左右两侧类型不同，结果为false；
+
+        如果比较： 1   ===  1       左侧为int数值型，右侧为int数值型，左右两侧类型相同，数值大小也相同，结果为true；
+
+        如果比较： 1   ===  2      左侧为int数值型，右侧为int数值型，左右两侧类型相同，但数值大小不同，结果为false；
+
+
+        简而言之就是 "==" 只要求值相等;   "===" 要求值和类型都相等*/
+        console.log('1' == true);
+        console.log('0' == false);
+        /*************************************/
+               //Symbol声明一个独一无二的变量 类型为Symbol
+               let str1 = Symbol('name');//name为对此变量的描述
+               let str2 = Symbol();
+               let str3 = Symbol();
+               console.log(str1);
+               console.log(str2);
+               console.log(str3 === str2);
+               console.log(typeof str1);//输出变量类型
+               //实例 对象的属性名
+                const obj = {};
+                obj.name = '张三';
+                obj.name = '李四';
+                obj[Symbol('name')] = '王五';
+                obj[Symbol('name')] = '赵六';
+               console.log(obj);
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+</head>
+<body>
+    <div id="app">
+        <p>初始值:{{message}}</p>
+        <p>翻转值:{{message.split('').reverse().join('')}}</p><!--拆分->翻转->重组-->
+        <p>函数调用:{{reverseStr()}}</p>
+        <p>计算属性:{{reverse}}</p><!--适合大量运算，获取时只计算一次，刷新页面时直接读取缓存,如果不希望页面缓存则使用methods-->
+    </div>
+        <script src="../../js/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    message: 'hello vue !'
+                },
+                methods: {
+                    reverseStr(){
+                        return this.message.split('').reverse().join('');
+                    }
+                },
+                computed: {//计算选项(默认只有get方法)
+                    //get方法
+                    reverse(){
+                        return this.message.split('').reverse().join('');
+                    }
+                }
+            })
+        </script>
+</body>
+</html>

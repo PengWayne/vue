@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-vue的全局组件</title>
+</head>
+<body>
+    <div id="app">
+        <my-date></my-date>
+    </div>
+        <script src="../../js/vue.js"></script>
+        <script>
+            //1.创建模板构造器
+            let Profile = Vue.extend({
+                //1.1模板选项
+                template: `
+                    <div>
+                        <input type="date">
+                        <p>今天好冷!</p>
+                    </div>
+                `
+            });
+
+            //2.注册全局组件
+            Vue.component('my-date',Profile);//组件名称 + 构造器
+
+          /*  //也可以这样写
+            Vue.component('my-date',{
+                //1.1模板选项
+                template: `
+                    <div>
+                        <input type="date">
+                        <p>今天好冷!</p>
+                    </div>
+                `
+            });//组件名称 + 构造器*/
+
+            new Vue({
+                el: '#app',
+                data: {
+                    message: ''
+                },
+                methods: {
+
+                },
+                computed: {
+
+                }
+            })
+        </script>
+</body>
+</html>

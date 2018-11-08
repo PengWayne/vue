@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue的组件通讯</title>
+</head>
+<body>
+    <div id="app">
+        <component-name message="hello world!" imgSrc="../../image/2.jpg"></component-name>
+        <component-name message="hello vue!" imgSrc="../../image/3.jpg"></component-name>
+    </div>
+
+    <template id="template-id">
+        <div>
+            <h1>{{message}}</h1>
+            <img :src="imgsrc" alt="" width="200px">
+        </div>
+    </template>
+
+        <script src="../../js/vue.js"></script>
+        <script>
+
+             //1.实例化组件
+             Vue.component('component-name',{
+                 template: '#template-id',
+                 props: ['message','imgsrc'],
+                 data() {
+                     return {
+                         you_data: ''
+                     }
+                 }
+             });
+
+            new Vue({
+                el: '#app'
+            })
+        </script>
+</body>
+</html>
